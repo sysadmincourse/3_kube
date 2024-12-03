@@ -1,4 +1,4 @@
-# 3, 4 Kubernetes
+# 3 Kubernetes
 
 ## Дасгал 1
 
