@@ -34,4 +34,32 @@ kubectl describe pod <pod-ийн нэр>
 
 ## Дасгал 5
 
-Persitent Volume-тэй StatefulSet үүсгэ. Pod-ууд нь nginx веб сервер асаах бөгөөд replica=3 байна.
+Persitent Volume-тэй StatefulSet үүсгэ. Pod-ууд нь nginx веб сервер асаах бөгөөд replica=3 байна. Retention policy нь delete байна. Үүний дараагаар ямар pvc, ямар pv-тэй холбогдож ашиглагдаж байгааг хар.
+```shell
+kubectl get pvc
+kubectl get pv
+```
+Эцэст нь scale=0 болоход ямар ч volume үлдэхгүй устаж байгаад баталгаажуулж хар.
+
+## Дасгал 6
+
+Өмнөх үүсгэсэн stateful сэтүүд дээр service үүсгэж, сервисийн нэрээр хандах боломж өг.
+
+## Дасгал 7
+
+Шинээр nginx deployment үүсгэ. Ингэхдээ index.html болон /etc/nginx/nginx.conf файлын доторхыг configmap ашиглан өөрчил нүү.
+
+## Дасгал 8
+
+Дараах дасгалыг хийнэ үү.
+  1 .docker даалгавар дээр хийсэн index.html-ийг сольсон image-ийг gitlab дээр үүсгэсэн рeпoгийн регистерт нэм.
+  2. Үүний дараагаар gitlab-д нэвтрэх deployment ssh түлхүүр үүсгээд, үүнийг kubernetes secret объект болгон үүсгэнэ. 
+  3. Үүсгэсэн secret-ээ ашиглан өөрийн контейнер image-ээс deployment үүсгэнэ.
+  4. Үүсгэсэн deployment дээрээ loadbalancer-тэй шинэ сервес нэмээд ip хаягаар хандаж хар. minikube дээр minikube tunnel асаах шаардлагатай гэдгийг анхаар.
+  5. Дээр нэмээд gateway үүсгэн nginx сервистэйгээ холбоорой.
+
+## Дасгал 9
+
+Энэ [tutorial-ийн](https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/) дагуу wordpress ажиллуул.
+
+
