@@ -52,7 +52,7 @@ kubectl get pv
 ## Дасгал 8
 
 Дараах дасгалыг хийнэ үү.  
-  1 .docker даалгавар дээр хийсэн index.html-ийг сольсон image-ийг gitlab дээр үүсгэсэн рeпoгийн регистерт нэм.  
+  1. docker даалгавар дээр хийсэн index.html-ийг сольсон image-ийг gitlab дээр үүсгэсэн рeпoгийн регистерт нэм.  
   2. Үүний дараагаар gitlab-д нэвтрэх deployment ssh түлхүүр үүсгээд, үүнийг kubernetes secret объект болгон үүсгэнэ.   
   3. Үүсгэсэн secret-ээ ашиглан өөрийн контейнер image-ээс deployment үүсгэнэ.  
   4. Үүсгэсэн deployment дээрээ loadbalancer-тэй шинэ сервес нэмээд ip хаягаар хандаж хар. minikube дээр minikube tunnel асаах шаардлагатай гэдгийг анхаар.  
